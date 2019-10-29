@@ -1,0 +1,19 @@
+{
+  "name": "practiceforproject",
+  "version": "1.0.0",
+  "description": "Platform that connects corporate and individual donors, restaurants, and caterers with families and organizations to provide meals and services to those who need, and to provide an environment for maximum optimization and minimal waste of food resources. (Using JavaScript, CSS-3, HTML-5, Angular, Node.js., and MySQL with correlated queries). Potential impact to the environment: to prevent waste on a big scale and provide meals to families in need of food at all levels of need.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

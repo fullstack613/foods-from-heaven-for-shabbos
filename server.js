@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const registration = require('./registration.js');
 const app = express();
-const port = 4242;
+const port = process.env.PORT || 80;
 
 app.use(cookieParser());
 // Parse URL-encoded bodies (as sent by HTML forms)

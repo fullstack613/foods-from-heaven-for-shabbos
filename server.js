@@ -1,9 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const registration = require('./registration.js');
 const app = express();
 const port = process.env.PORT || 80;
-const testMYSQL = require('./testMYSQL');
+const testMYSQL = require('./testMYSQL.js');
+
+app.set('view engine', 'ejs');
 
 app.use(cookieParser());
 // Parse URL-encoded bodies (as sent by HTML forms)
@@ -11,6 +14,17 @@ app.use(express.urlencoded());
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 app.use(express.static('public'));
+
+app.get('/userInfo/:id', (req, res) => {
+    console.log(req.params.id);
+    res.render('./pages/userInfo', {
+        id: req.params.id,
+        time: new Date()
+    });
+})
+
+// app.get()
+
 
 app.get('/', (req, res) => res.sendFile('./pages/home.html', {
     root: __dirname

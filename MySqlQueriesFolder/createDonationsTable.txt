@@ -1,0 +1,17 @@
+// create donations table
+
+CREATE TABLE `donations` (
+	`donation_id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`who_is_donating` BIGINT(20) UNSIGNED NOT NULL,
+	`money_amount_donated` BIGINT(20) UNSIGNED NULL DEFAULT NULL,
+	`number_of_portions_main` BIGINT(20) UNSIGNED NULL DEFAULT NULL,
+	`number_of_portions_side` BIGINT(20) UNSIGNED NULL DEFAULT NULL,
+	`number_of_portions_dessert` BIGINT(20) UNSIGNED NULL DEFAULT NULL,
+	`date_of_donation` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`who_is_donating`),
+	UNIQUE INDEX `donation_id` (`donation_id`),
+	CONSTRAINT `donations_ibfk_1` FOREIGN KEY (`who_is_donating`) REFERENCES `users` (`ID`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;

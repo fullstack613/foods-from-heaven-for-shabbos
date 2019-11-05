@@ -23,9 +23,6 @@ app.get('/userInfo/:id', (req, res) => {
     });
 })
 
-// app.get()
-
-
 app.get('/', (req, res) => res.sendFile('./pages/home.html', {
     root: __dirname
 }));

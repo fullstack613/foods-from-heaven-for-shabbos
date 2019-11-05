@@ -20,7 +20,7 @@
         }
 
         header {
-            background-image: url("images/Shabbos.Set.Table.png");
+            background-image: url("images/Shabbos.Set.Table.small.png");
             background-repeat: no-repeat;
             background-position: center;
             /* padding: 200px; */
@@ -153,51 +153,16 @@
         <div class="bord-navigation">
             <div class="diva"> Hello. Welcome to Food for Families. Click either of the buttons below!
 
-                <!-- <div class=col-lg-2>
-                    <form>
-                        <input type="submit" value="About us">
-                    </form>
-                </div>
-
-                <div class=col-lg-2>
-                    <form>
-                        <input type="submit" value="Donations">
-                    </form>
-                </div>
-
-                <div class=col-lg-2>
-                    <form>
-                        <input type="submit" value="Requests">
-                    </form>
-                </div>
-
-                <div class=col-lg-2>
-                    <form>
-                        <input type="submit" value="Write to us">
-                    </form>
-                </div>
-
-                <div class=col-lg-2>
-                    <form>
-                        <input type="submit" value="communication">
-                    </form>
-                </div>
-
-                <div class=col-lg-2>
-                    <form>
-                        <input type="submit" value="Login">
-                    </form>
-                </div> -->
             </div>
         </div>
 
 
-        <!-- <div> -->
         <div class=col-lg-5>
             <div>
                 <form>
-                    <input class="References" type="submit" value="Donors" id="donorButton"
-                        style="border-radius: 0px 100px; right: 17px">
+                    <a href="login"><input class="References" value="Donors" id="donorButton"
+                            style="border-radius: 0px 100px; right: 17px">
+                    </a>
                 </form>
             </div>
         </div>
@@ -208,9 +173,9 @@
         <div class=col-lg-5>
             <div>
                 <form>
-                    <input class="References" type="submit" value="Families" id="familyButton"
-                        style="border-radius: 100px 0px; ">
-                </form>
+                    <a href="login"><input class="References" value="Families" id="familyButton"
+                            style="border-radius: 100px 0px; ">
+                    </a></form>
             </div>
         </div>
 
@@ -233,11 +198,11 @@
     // familyButton.addEventListener("Click", gotoLoginFamily);
 
     document.getElementById("donorButton").onclick = function () {
-        location.href = "./loginDonor.html";
+        location.href = "login";
     }
 
     document.getElementById("familyButton").onclick = function () {
-        location.href = "./loginFamily.html";
+        location.href = "login";
     }
 
 

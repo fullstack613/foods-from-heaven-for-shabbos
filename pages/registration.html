@@ -2,71 +2,87 @@
 <html>
 
 <head>
-    <title>Registration</title>
+    <title>REGISTRATION</title>
+    <link rel="icon" type="image/ico" href="images/icon.Shabbos.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script>
+        src = "./registration.js"
+    </script>
+
     <style>
-        .pageHeader {
-            background-color: lightgray;
-            border-bottom: 2px dashed black;
-        }
+
     </style>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <a href="/">Back</a>
-    <header class="pageHeader">
-        <h2>User Registration</h2>
-    </header>
-    <form id="myForm">
-        <table>
-            <tr>
-                <td><label for="userName">User Name:</label> </td>
-                <td><input type="text" name="userName" id="userName" size="20" required></td>
-            </tr>
-            <tr>
-                <td><label for="password">Password:</label></td>
-                <td><input type="password" name="password" id="password" size="20" required />
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Register" id="submitBtn" /></td>
-            </tr>
+    <div class="container-fluid">
 
-        </table>
-    </form>
+        <header class=>
+            <h1>This is our REGISTRATION PAGE for Food for Families ...</h1>
 
-    <script>
-        // listen to click event of the submit button
-        $('#submitBtn').click(function (e) {
-            // make sure the form is not submitted
-            e.preventDefault();
-            // run the form validations
-            document.getElementById('myForm').checkValidity();
-            // check if the form is valid
-            if (document.getElementById('myForm').reportValidity()) {
-                // form is valid, create a post request
-                $.ajax({
-                    type: "post",
-                    url: "registration/register",
-                    // the user data 
-                    data: {
-                        userName: $('#userName').val(),
-                        password: $('#password').val()
-                    },
-                    complete: // this function will run if the request is successful
-                        function (xhr, status) {
-                            // check if there is an error
-                            if (status === 'error')
-                                alert(xhr.responseText);
-                            else
-                                alert(xhr.responseText);
-                        }
-                });
-            }
-        });
-    </script>
+            <form id="registrationForm"> <br>
+                First Name:<br>
+                <input type="text" name="firstName"><br>
+                Family Name:<br>
+                <input type="text" name="familyName"><br>
+                Family Size:<br>
+                <input type="radio" name="familySize"><br>
+                Email:<br>
+                <input type="text" name="emailAdress"><br>
+                Home Phone:<br>
+                <input type="text" name="homePhone"><br>
+                Cell Phone:<br>
+                <input type="text" name="cellPhone"><br>
+                Address:<br>
+                <input type="text" name="address"><br>
+                Special Requests:<br>
+                <textarea name="special Requests" rows="3" cols="40"></textarea><br>
+                User Name (whatever you want to call yourselves):<br>
+                <input type="text" name="userName"><br>
+                Password (not shared with ANYONE ... EVER):<br>
+                <input type="text" name="passWord"><br>
+                <br><br><br>
+                <input type="submit" value="SUBMIT YOUR REGISTRATION INFO" id="submitButton" />
+            </form>
+
+    </div>
 </body>
+
+<script>
+    // listen to click event of the submit button
+    $('#submitBtn').click(function (e) {
+        // make sure the form is not submitted
+        e.preventDefault();
+        // run the form validations
+        document.getElementById('registrationForm').checkValidity();
+        // check if the form is valid
+        if (document.getElementById('registrationForm').reportValidity()) {
+            // form is valid, create a post request
+            $.ajax({
+                type: "post",
+                url: "registration/register",
+                // the user data 
+                data: {
+                    userName: $('#userName').val(),
+                    password: $('#password').val()
+                },
+                complete: // this function will run if the request is successful
+                    function (xhr, status) {
+                        // check if there is an error
+                        if (status === 'error')
+                            alert(xhr.responseText);
+                        else
+                            alert(xhr.responseText);
+                    }
+            });
+        }
+    });
+</script>
+
 
 </html>

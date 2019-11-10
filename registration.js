@@ -1,33 +1,43 @@
+// this registration code file is used to push into db and check validity against db
+
+const dbConnection = require("./dbConnection.js");
+
 module.exports = {
     register,
     login
 };
 
-let users = [];
+async function register(req, res) {
 
-function register(req, res) {
-    let user = {
-        userName: req.body.userName,
-        password: req.body.password,
-    }
-    for (let user of users) {
-        if (user.userName === req.body.userName) {
+    let users = await dbConnection.queryFunction("select * from users");
+
+    // console.log(users);
+
+    for (let u of users) {
+        if (req.body.userName === u.user_name) { // checking new userName against the entire array of users in the db at present time
             return res.status(500).send("User name ALREADY in use ... try a different username");
         }
     }
-    users.push(user);
-    console.log(users);
-    res.send("OK - you are in ... welcome to the world if registered users!")
 
-    console.log("WELCOME OUR DEAR USER!")
-}
+    // if username is unique (not in db) .. code, below, will insert iy"H new user (with ALL info from registration)
 
-function login(req, res) {
-    for (let user of users) {
-        if (user.userName === req.body.userName && user.password === req.body.password) {
-            return res.send("WELCOME to you: " + user.userName);
+    await dbConnection.queryFunction(`insert into users (first_name, last_name, user_name, password, size_of_family, email, home_phone, cell_phone, address, special_requests) 
+    values("${req.body.firstName}" , "${req.body.lastName}" , "${req.body.userName}" , "${req.body.password}" , "${req.body.familySize}" , "${req.body.email}" , "${req.body.homePhone}" , "${req.body.cellPhone}" , "${req.body.address}" , "${req.body.specialRequests}")`);
+    res.send("OK - you are in ... welcome to the world of registered users!")
+};
+
+
+async function login(req, res) {
+
+    let users = await dbConnection.queryFunction("select * from users"); // receive users from db
+
+    // let activeUser = req.body; // post info for current user
+    for (let u of users) {
+        if (req.body.userName === u.user_name && req.body.password === u.password) {
+            return res.status(200).send("WELCOME to you: " + u.first_name + " " +
+                u.last_name + "  [username: " + req.body.userName + "  ] !!");
         }
-        return res.status(500).send("SORRY - try again as your user name and password do not match.");
     }
 
+    return res.status(500).send("SORRY - try again as your user name and password do not match.");
 }

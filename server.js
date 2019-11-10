@@ -31,7 +31,7 @@ app.get('/test', (req, res) => {
     return testMYSQL(req, res);
 });
 
-app.get('/registration', (req, res) => res.sendFile('./pages/Registration.html', {
+app.get('/registration', (req, res) => res.sendFile('./pages/registration.html', {
     root: __dirname
 }));
 app.get('/login', (req, res) => res.sendFile('./pages/login.html', {

@@ -25,19 +25,50 @@
             <h3> If you are a NEW user, please
                 <a href="registration"> REGISTER </a> </h3>
         </header>
-        <form><br>
+        <form id="loginForm"><br>
             User Name (whatever you called yourself at registration):<br>
-            <input type="text" name="userName"><br>
+            <input type="text" name="userName" id="userName"><br>
             Password:<br>
-            <input type="text" name="passWord"><br>
+            <input type="text" name="password" id="password"><br>
             <br><br><br>
-            <input type="submit" value="CLICK TO SUBMIT YOUR LOGIN INFO" id="submitButton" />
+            <input type="submit" value="CLICK TO SUBMIT YOUR LOGIN INFO" id="submitBtn" />
         </form>
-
-
-
 
     </div>
 </body>
+
+<script>
+    // listen to click event of the submit button
+    $('#submitBtn').click(function (e) {
+        // make sure the form is not submitted
+        e.preventDefault();
+        // run the form validations
+        document.getElementById('loginForm').checkValidity();
+        // check if the form is valid
+        if (document.getElementById('loginForm').reportValidity()) {
+            // form is valid, create a post request
+            $.ajax({
+                type: "post",
+                url: "registration/login",
+                // the user data 
+                data: {
+                    userName: $('#userName').val(),
+                    password: $('#password').val(),
+                },
+                complete: // this function will run if the request is successful
+                    function (xhr, status) {
+                        // check if there is an error
+                        if (status === 'error')
+                            alert(xhr.responseText);
+                        else {
+                            alert(xhr.responseText);
+                            window.location.replace("./");
+                        }
+
+                    }
+            });
+        }
+    });
+</script>
 
 </html>

@@ -1,8 +1,12 @@
 // my connection to the database
 const mysql = require('promise-mysql');
-let db;
 
-mysql.createPool({
+module.exports = {
+    queryFunction
+}
+
+let db;
+let dbConnection = mysql.createPool({
         connectionLimit: 100,
         host: process.env.MYSQL_URL,
         user: process.env.MYSQL_USER,
@@ -16,11 +20,7 @@ mysql.createPool({
         console.error(e);
     });
 
-function returnUser() {
-    console.log(users);
-}
-module.exports = async function (req, res) {
-    let promise = db.query("select * from users");
-    let users = await promise;
-    res.json(users);
+async function queryFunction(str) {
+    await dbConnection;
+    return db.query(str);
 }

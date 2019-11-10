@@ -9,10 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <script>
-        src = "./registration.js"
-    </script>
-
     <style>
 
     </style>
@@ -27,27 +23,27 @@
 
             <form id="registrationForm"> <br>
                 First Name:<br>
-                <input type="text" name="firstName"><br>
-                Family Name:<br>
-                <input type="text" name="familyName"><br>
-                Family Size:<br>
-                <input type="radio" name="familySize"><br>
-                Email:<br>
-                <input type="text" name="emailAdress"><br>
-                Home Phone:<br>
-                <input type="text" name="homePhone"><br>
-                Cell Phone:<br>
-                <input type="text" name="cellPhone"><br>
-                Address:<br>
-                <input type="text" name="address"><br>
-                Special Requests:<br>
-                <textarea name="special Requests" rows="3" cols="40"></textarea><br>
+                <input type="text" name="firstName" id="firstName"> <br>
+                Last Name:<br>
+                <input type="text" name="lastName" id="lastName"><br><br>
                 User Name (whatever you want to call yourselves):<br>
-                <input type="text" name="userName"><br>
+                <input type="text" name="userName" id="userName"><br>
                 Password (not shared with ANYONE ... EVER):<br>
-                <input type="text" name="passWord"><br>
+                <input type="text" name="password" id="password"><br><br>
+                Family Size:<br>
+                <input type="text" name="familySize" id="familySize"><br>
+                Email:<br>
+                <input type="text" name="email" id="email"><br>
+                Home Phone:<br>
+                <input type="text" name="homePhone" id="homePhone"><br>
+                Cell Phone:<br>
+                <input type="text" name="cellPhone" id="cellPhone"><br>
+                Address:<br>
+                <input type="text" name="address" id="address"><br>
+                Special Requests:<br>
+                <textarea name="specialRequests" rows="3" cols="40" id="specialRequests"></textarea><br>
                 <br><br><br>
-                <input type="submit" value="SUBMIT YOUR REGISTRATION INFO" id="submitButton" />
+                <input type="submit" value="SUBMIT YOUR REGISTRATION INFO" id="submitBtn" />
             </form>
 
     </div>
@@ -68,21 +64,32 @@
                 url: "registration/register",
                 // the user data 
                 data: {
+                    firstName: $('#firstName').val(),
+                    lastName: $('#lastName').val(),
                     userName: $('#userName').val(),
-                    password: $('#password').val()
+                    password: $('#password').val(),
+                    familySize: $('#familySize').val(),
+                    email: $('#email').val(),
+                    homePhone: $('#homePhone').val(),
+                    cellPhone: $('#cellPhone').val(),
+                    address: $('#address').val(),
+                    specialRequests: $('#specialRequests').val(),
                 },
                 complete: // this function will run if the request is successful
                     function (xhr, status) {
                         // check if there is an error
-                        if (status === 'error')
+                        if (status === 'error') {
                             alert(xhr.responseText);
-                        else
+                        } else {
                             alert(xhr.responseText);
+                            window.location.replace("./login"); // <== NOTE .. the destination is the ENDPOINT = what we see in the URL name of that page 
+                        }
                     }
             });
         }
     });
 </script>
+
 
 
 </html>

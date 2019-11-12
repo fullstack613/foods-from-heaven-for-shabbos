@@ -19,19 +19,23 @@
     <div class="container-fluid">
 
         <header class=>
-            <h1> WELCOME to the LOGIN PAGE .. </h1>
-            <h2> Please enter your username and password. </h2>
+            <h1> WELCOME to the LOGIN PAGE for Families ... !!! </h1>
+            <h2> Please enter your FAMILY username and password. </h2>
             <br>
-            <h3> If you are a NEW user, please
-                <a href="registration"> REGISTER </a> </h3>
+            <h3> If you are a NEW family user, please click to
+                <a href="registrationFamily"> <i></i>REGISTER YOUR FAMILY</i> </a> </h3>
+            <h3>If you are already a registered FAMILY, we are VERY excited that you are back. Please login:</h3>
+
         </header>
-        <form id="loginForm"><br>
-            User Name (whatever you called yourself at registration):<br>
-            <input type="text" name="userName" id="userName"><br>
+        <form id="familyLoginForm"><br>
+
+
+            User Name (whatever you called your FAMILY at registration):<br>
+            <input type="text" name="userName" id="userName" required><br>
             Password:<br>
-            <input type="text" name="password" id="password"><br>
+            <input type="text" name="password" id="password" required><br>
             <br><br><br>
-            <input type="submit" value="CLICK TO SUBMIT YOUR LOGIN INFO" id="submitBtn" />
+            <input type="submit" value="CLICK TO SUBMIT YOUR FAMILY LOGIN INFO" id="submitBtn" />
         </form>
 
     </div>
@@ -43,13 +47,13 @@
         // make sure the form is not submitted
         e.preventDefault();
         // run the form validations
-        document.getElementById('loginForm').checkValidity();
+        document.getElementById('familyLoginForm').checkValidity();
         // check if the form is valid
-        if (document.getElementById('loginForm').reportValidity()) {
+        if (document.getElementById('familyLoginForm').reportValidity()) {
             // form is valid, create a post request
             $.ajax({
                 type: "post",
-                url: "registration/login",
+                url: "familyRegistration/login",
                 // the user data 
                 data: {
                     userName: $('#userName').val(),
@@ -62,7 +66,7 @@
                             alert(xhr.responseText);
                         else {
                             alert(xhr.responseText);
-                            window.location.replace("./");
+                            window.location.replace("./requests");
                         }
 
                     }

@@ -21,9 +21,9 @@ async function register(req, res) {
 
     // if username is unique (not in db) .. code, below, will insert iy"H new user (with ALL info from registration)
 
-    await dbConnection.queryFunction(`insert into users (first_name, last_name, user_name, password, size_of_family, email, home_phone, cell_phone, address, special_requests) 
-    values("${req.body.firstName}" , "${req.body.lastName}" , "${req.body.userName}" , "${req.body.password}" , "${req.body.familySize}" , "${req.body.email}" , "${req.body.homePhone}" , "${req.body.cellPhone}" , "${req.body.address}" , "${req.body.specialRequests}")`);
-    res.send("OK - you are in ... welcome to the world of registered users!")
+    await dbConnection.queryFunction(`insert into users (donor, family, first_name, last_name, user_name, password, size_of_family, email, home_phone, cell_phone, address, special_requests) 
+    values("${req.body.donor}" , "${req.body.family}" , "${req.body.firstName}" , "${req.body.lastName}" , "${req.body.userName}" , "${req.body.password}" , "${req.body.familySize}" , "${req.body.email}" , "${req.body.homePhone}" , "${req.body.cellPhone}" , "${req.body.address}" , "${req.body.specialRequests}")`);
+    res.send("Great - you are registered ... welcome to the world of ")
 };
 
 

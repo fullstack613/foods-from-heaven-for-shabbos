@@ -31,20 +31,49 @@ app.get('/test', (req, res) => {
     return testMYSQL(req, res);
 });
 
-app.get('/registration', (req, res) => res.sendFile('./pages/registration.html', {
+app.get('/registrationDonor', (req, res) => res.sendFile('./pages/registrationDonor.html', {
     root: __dirname
 }));
-app.get('/login', (req, res) => res.sendFile('./pages/login.html', {
-    root: __dirname
-}));
-app.get('/about', (req, res) => res.sendFile('./pages/about.html', {
+app.get('/registrationFamily', (req, res) => res.sendFile('./pages/registrationFamily.html', {
     root: __dirname
 }));
 
-app.post('/registration/register', (req, res) => {
+app.get('/loginDonor', (req, res) => res.sendFile('./pages/loginDonor.html', {
+    root: __dirname
+}));
+app.get('/loginFamily', (req, res) => res.sendFile('./pages/loginFamily.html', {
+    root: __dirname
+}));
+
+app.get('/donations', (req, res) => res.sendFile('./pages/donations.html', {
+    root: __dirname
+}));
+app.get('/requests', (req, res) => res.sendFile('./pages/requests.html', {
+    root: __dirname
+}));
+
+app.get('/about', (req, res) => res.sendFile('./pages/about.html', {
+    root: __dirname
+}));
+app.get('/contactUs', (req, res) => res.sendFile('./pages/contactUs.html', {
+    root: __dirname
+}));
+app.get('/updateDetails', (req, res) => res.sendFile('./pages/updateDetails.html', {
+    root: __dirname
+}));
+
+
+app.post('/donorRegistration/register', (req, res) => {
     return registration.register(req, res);
 });
-app.post('/registration/login', (req, res) => {
+app.post('/familyRegistration/register', (req, res) => {
+    return registration.register(req, res);
+});
+
+app.post('/donorRegistration/login', (req, res) => {
+    return registration.login(req, res);
+});
+app.post('/familyRegistration/login', (req, res) => {
     return registration.login(req, res);
 });
 

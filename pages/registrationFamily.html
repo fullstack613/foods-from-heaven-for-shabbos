@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FAMILY REGISTRATION</title>
+    <link rel="icon" type="image/ico" href="images/icon.Shabbos.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <header class=>
+            <h1>This is our REGISTRATION PAGE for FAMILIES for "Food for Families" ...</h1>
+
+            <form id="familyRegistrationForm">
+                <br>
+                <h4> <input class="hide" type="checkbox" name="donor" id="donor" value="false">
+                    <!-- <sp></sp>YES! I am interested in being a DONOR for Food -->
+                    <!-- for -->
+                    <!-- Families. -->
+                </h4>
+                <h4> <input type="checkbox" name="family" id="family" value="true" required>
+                    <sp></sp>YES! We are interested in being part of "Foods for Families".
+                </h4><br>
+                First Name:<br>
+                <input type="text" name="firstName" id="firstName" value=" "> <br>
+                Last Name:<br>
+                <input type="text" name="lastName" id="lastName" value=" "><br><br>
+                User Name (whatever you want to call yourselves):<br>
+                <input type="text" name="userName" id="userName" required><br>
+                Password (not shared with ANYONE ... EVER):<br>
+                <input type="text" name="password" id="password" required><br>
+                Family Size (number of portions to arrive with the foods package):<br>
+                <input type="number" name="familySize" id="familySize" min=1 max=25 required><br>
+                <!-- this is HIDDEN in Donor Reg and seen in Family Reg-->
+                <br>
+                Email:<br>
+                <input type="text" name="email" id="email" value=" "><br>
+                Phone:<br>
+                <input type="text" name="homePhone" id="homePhone" value=" "><br>
+                Cell Phone:<br>
+                <input type="text" name="cellPhone" id="cellPhone" required><br>
+                Address:<br>
+                <input type="text" name="address" id="address" value=" "><br>
+                Special Requests / Additional Information:<br>
+                <textarea name="specialRequests" rows="3" cols="40" id="specialRequests" value=" "></textarea><br>
+
+                <input type="submit" value="SUBMIT YOUR DONOR REGISTRATION INFO" id="submitBtn" />
+            </form>
+
+    </div>
+</body>
+
+<script>
+    // listen to click event of the submit button
+    $('#submitBtn').click(function (e) {
+        // make sure the form is not submitted
+        e.preventDefault();
+        // run the form validations
+        document.getElementById('familyRegistrationForm').checkValidity();
+        // check if the form is valid
+        if (document.getElementById('familyRegistrationForm').reportValidity()) {
+            // form is valid, create a post request
+            $.ajax({
+                type: "post",
+                url: "familyRegistration/register",
+                // the user data 
+                data: {
+                    donor: $('#donor').val(), // ????
+                    family: $('#family').val(), // ????
+                    firstName: $('#firstName').val(),
+                    lastName: $('#lastName').val(),
+                    userName: $('#userName').val(),
+                    password: $('#password').val(),
+                    familySize: $('#familySize').val(),
+                    email: $('#email').val(),
+                    homePhone: $('#homePhone').val(),
+                    cellPhone: $('#cellPhone').val(),
+                    address: $('#address').val(),
+                    specialRequests: $('#specialRequests').val(),
+                },
+                complete: // this function will run if the request is successful
+                    function (xhr, status) {
+                        // check if there is an error
+                        if (status === 'error') {
+                            alert(xhr.responseText);
+                        } else {
+                            alert(xhr.responseText +
+                                "Foods for Families.  Thank you for being an INTEGRAL part of Families helping Families, preserving the resources of Abundant Foods and helping the world not to throw away yummy delicious Foods from Heaven."
+                            );
+                            window.location.replace(
+                                "./requests"
+                            ); // <== NOTE .. the destination is the ENDPOINT = what we see in the URL name of that page 
+                        }
+                    }
+            });
+        }
+    });
+</script>
+
+
+
+</html>

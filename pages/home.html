@@ -100,6 +100,7 @@
             overflow: hidden;
             /* width: 20px; */
             font-size: 60px;
+            cursor: pointer;
 
             /* text-shadow: #666 1px 2px 0px; */
         }
@@ -160,7 +161,7 @@
         <div class=col-lg-5>
             <div>
                 <form>
-                    <a href="login"><input class="References" value="Donors" id="donorButton"
+                    <a href="loginDonor"><input class="References" value="Donors" id="donorButton"
                             style="border-radius: 0px 100px; right: 17px">
                     </a>
                 </form>
@@ -173,7 +174,7 @@
         <div class=col-lg-5>
             <div>
                 <form>
-                    <a href="login"><input class="References" value="Families" id="familyButton"
+                    <a href="loginFamily"><input class="References" value="Families" id="familyButton"
                             style="border-radius: 100px 0px; ">
                     </a></form>
             </div>
@@ -182,7 +183,8 @@
     </div>
     <br>
     <p style="text-align:center">
-        <a href="pages.about.html">About Us</a> | <a href=registration.html>Contact Us</a>
+        <a href="about">About Us</a> | <a href=contactUs>Contact Us</a> | <a href=updateDetails>Update Your
+            Details</a>
     </p>
 
 
@@ -191,26 +193,4 @@
 </html>
 
 <script>
-    // let donorButton = document.getElementById("donorButton");
-    // donorButton.addEventListener("Click", gotoLoginDonor);
-
-    // let familyButton = document.getElementById("familyButton");
-    // familyButton.addEventListener("Click", gotoLoginFamily);
-
-    document.getElementById("donorButton").onclick = function () {
-        location.href = "login";
-    }
-
-    document.getElementById("familyButton").onclick = function () {
-        location.href = "login";
-    }
-
-
-    // function gotoLoginDonor() {
-    //     window.location.href = "./loginDonor.html";
-    //     console.log("login donor page");
-    // }
-
-    // function gotoLoginFamily() {
-    //     console.log("login family page");
 </script>

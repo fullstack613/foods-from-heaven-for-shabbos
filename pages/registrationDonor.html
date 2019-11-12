@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DONOR REGISTRATION</title>
+    <link rel="icon" type="image/ico" href="images/icon.Shabbos.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <header class=>
+            <h1>This is our REGISTRATION PAGE for DONORS for "Food for Families" ...</h1>
+
+            <form id="donorRegistrationForm">
+                <br>
+                <h4> <input type="checkbox" name="donor" id="donor" value="true" required>
+                    <sp></sp>YES! I am interested in being a DONOR for Food
+                    for
+                    Families.
+                </h4>
+                <h4> <input class="hide" type="checkbox" name="family" id="family" value="false">
+                    <!-- <sp></sp>YES! We are interested in being part of "Foods for Families". -->
+                </h4>
+                <br>
+                First Name:<br>
+                <input type="text" name="firstName" id="firstName" required> <br>
+                Last Name:<br>
+                <input type="text" name="lastName" id="lastName" required><br><br>
+                User Name (whatever you want to call yourselves):<br>
+                <input type="text" name="userName" id="userName" required><br>
+                Password (not shared with ANYONE ... EVER):<br>
+                <input type="text" name="password" id="password" required>
+                <!-- Family Size:<br> -->
+                <input class="hide" type="number" name="familySize" id="familySize" value=0><br>
+                <!-- this is HIDDEN in Donor Reg and seen in Family Reg-->
+                Email:<br>
+                <input type="text" name="email" id="email" required><br>
+                Business or Home Phone:<br>
+                <input type="text" name="homePhone" id="homePhone" value=""><br>
+                Cell Phone:<br>
+                <input type="text" name="cellPhone" id="cellPhone" required><br>
+                Address:<br>
+                <input type="text" name="address" id="address" value=" "><br>
+                Special Requests for Donations:<br>
+                <textarea name="specialRequests" rows="2" cols="40" id="specialRequests" value="000"></textarea><br>
+
+                <input type="submit" value="SUBMIT YOUR DONOR REGISTRATION INFO" id="submitBtn" />
+            </form>
+
+    </div>
+</body>
+
+<script>
+    // listen to click event of the submit button
+    $('#submitBtn').click(function (e) {
+        // make sure the form is not submitted
+        e.preventDefault();
+        // run the form validations
+        document.getElementById('donorRegistrationForm').checkValidity();
+        // check if the form is valid
+        if (document.getElementById('donorRegistrationForm').reportValidity()) {
+            // form is valid, create a post request
+            $.ajax({
+                type: "post",
+                url: "donorRegistration/register",
+                // the user data 
+                data: {
+                    donor: $('#donor').val(),
+                    family: $('#family').val(),
+                    firstName: $('#firstName').val(),
+                    lastName: $('#lastName').val(),
+                    userName: $('#userName').val(),
+                    password: $('#password').val(),
+                    familySize: $('#familySize').val(),
+                    email: $('#email').val(),
+                    homePhone: $('#homePhone').val(),
+                    cellPhone: $('#cellPhone').val(),
+                    address: $('#address').val(),
+                    specialRequests: $('#specialRequests').val(),
+                },
+                complete: // this function will run if the request is successful
+                    function (xhr, status) {
+                        // check if there is an error
+                        if (status === 'error') {
+                            alert(xhr.responseText);
+                        } else {
+                            alert(xhr.responseText + "very important registered DONORS!");
+                            window.location.replace(
+                                "./donations"
+                            ); // <== NOTE .. the destination is the ENDPOINT = what we see in the URL name of that page 
+                        }
+                    }
+            });
+        }
+    });
+</script>
+
+
+
+</html>

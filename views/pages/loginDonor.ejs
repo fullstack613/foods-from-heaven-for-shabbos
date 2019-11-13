@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<%-include ../partials/header %>
+
+<head>
+    <title>Donors Login</title>
+    <link rel="icon" type="image/ico" href="images/icon.Shabbos.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        a {
+            color: rgb(94, 6, 6);
+        }
+
+        .background {
+            background: lightyellow;
+            margin: auto;
+        }
+
+        .barNavigation {
+            list-style-type: none;
+            text-align: center;
+            color: rgb(94, 6, 6);
+            font-family: calligraphy;
+            font-style: italic;
+            font-size: 25px;
+            font-weight: bold;
+            position: relative;
+            top: 10px;
+            background-color: burlywood;
+            margin: auto;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .loginBlock {
+            margin-top: 10%;
+            text-align: center;
+            box-shadow: 10px 10px 10px 10px burlywood;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <div class="barNavigation">
+            <div> Welcome to the Login Page for Donors for "Foods for Families".</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    <div class="loginBlock">
+                        <form id="donorLoginForm"><br>
+                            User Name:<br>
+                            <input type="text" name="userName" id="userName" required><br>
+                            Password:<br>
+                            <input type="text" name="password" id="password" required><br>
+                            <br>
+                            <input type="submit" value="Log In" id="submitBtn" style="text-align: left" />
+                            <p style="font-size:12px"><a href="forgotPassword">Forgot password</a></p>
+                            <p> <a href="registrationDonor"> <u>Click here if you are a NEW donor</u></a>
+                                <p>
+                                    <br>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+<script>
+    // listen to click event of the submit button
+    $('#submitBtn').click(function (e) {
+        // make sure the form is not submitted
+        e.preventDefault();
+        // run the form validations
+        document.getElementById('donorLoginForm').checkValidity();
+        // check if the form is valid
+        if (document.getElementById('donorLoginForm').reportValidity()) {
+            // form is valid, create a post request
+            $.ajax({
+                type: "post",
+                url: "donorRegistration/login",
+                // the user data 
+                data: {
+                    userName: $('#userName').val(),
+                    password: $('#password').val(),
+                },
+                complete: // this function will run if the request is successful
+                    function (xhr, status) {
+                        // check if there is an error
+                        if (status === 'error')
+                            alert(xhr.responseText);
+                        else {
+                            alert(xhr.responseText);
+                            window.location.replace("./donations");
+                        }
+
+                    }
+            });
+        }
+    });
+</script>
+
+</html>

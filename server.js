@@ -23,27 +23,45 @@ app.get('/userInfo/:id', (req, res) => {
     });
 })
 
-app.get('/', (req, res) => res.sendFile('./pages/home.html', {
-    root: __dirname
-}));
+app.get('/', (req, res) => {
+    res.render('./pages/home');
+})
+// app.get('/', (req, res) => res.sendFile('./pages/home.html', {
+//     root: __dirname
+// }));
 
 app.get('/test', (req, res) => {
     return testMYSQL(req, res);
 });
 
-app.get('/registrationDonor', (req, res) => res.sendFile('./pages/registrationDonor.html', {
-    root: __dirname
-}));
+app.get('/registrationDonor', (req, res) => {
+    res.render('./pages/registrationDonor');
+})
+// app.get('/registrationDonor', (req, res) => res.sendFile('./pages/registrationDonor.html', {
+//     root: __dirname
+// }));
+
 app.get('/registrationFamily', (req, res) => res.sendFile('./pages/registrationFamily.html', {
     root: __dirname
 }));
 
-app.get('/loginDonor', (req, res) => res.sendFile('./pages/loginDonor.html', {
-    root: __dirname
-}));
-app.get('/loginFamily', (req, res) => res.sendFile('./pages/loginFamily.html', {
-    root: __dirname
-}));
+app.get('/loginDonor', (req, res) => {
+    res.render('./pages/loginDonor');
+})
+// app.get('/loginDonor', (req, res) => res.sendFile('./pages/loginDonor.html', {
+//     root: __dirname
+// }));
+
+app.get('/loginFamily', (req, res) => {
+    res.render('./pages/loginFamily');
+})
+// app.get('/loginFamily', (req, res) => res.sendFile('./pages/loginFamily.html', {
+//     root: __dirname
+// }));
+
+app.get('/forgotPassword', (req, res) => {
+    res.render('./pages/forgotPassword');
+})
 
 app.get('/donations', (req, res) => res.sendFile('./pages/donations.html', {
     root: __dirname
@@ -61,7 +79,6 @@ app.get('/contactUs', (req, res) => res.sendFile('./pages/contactUs.html', {
 app.get('/updateDetails', (req, res) => res.sendFile('./pages/updateDetails.html', {
     root: __dirname
 }));
-
 
 app.post('/donorRegistration/register', (req, res) => {
     return registration.register(req, res);

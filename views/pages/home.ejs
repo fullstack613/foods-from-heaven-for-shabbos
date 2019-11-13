@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<%-include ../partials/header %>
+
 <head>
     <title> Food for Shabbos </title>
     <link rel="icon" type="image/ico" href="images/icon.Shabbos.png" />
@@ -14,44 +16,13 @@
             box-sizing: border-box;
         }
 
+        a {
+            color: rgb(94, 6, 6);
+        }
+
         .background {
             background: lightyellow;
             margin: auto;
-        }
-
-        header {
-            background-image: url("images/Shabbos.Set.Table.small222.jpg");
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 370px;
-        }
-
-        .headline {
-            position: absolute;
-            top: 37%;
-            right: 50%;
-            color: lightyellow;
-            text-shadow: rgb(94, 6, 6) 2px 4px 2px;
-            font-family: calligraphy;
-            font-style: italic;
-            font-size: 45px;
-            font-weight: bold;
-        }
-
-        .firstGoldLine {
-            background-size: 100%;
-            background-image: url("images/gold.Color.jpg");
-            margin: auto;
-            padding: 4px;
-        }
-
-        .secondGoldLine {
-            position: relative;
-            top: 10px;
-            background-size: 100%;
-            background-image: url("images/gold.Color.jpg");
-            margin: auto;
-            padding: 4px;
         }
 
         .barNavigation {
@@ -92,53 +63,11 @@
             width: 741px;
             background-color: rgb(189, 143, 28);
         }
-
-        /* form>input {
-            border-radius: 0px 10px 10px 0px;
-            background-color: goldenrod;
-            color: rgb(68, 67, 67);
-            position: relative;
-            top: 5px;
-            text-align: center;
-            width: 150px;
-            height: 35px;
-            font-size: 17px;
-            font-weight: bold;
-            font-style: italic;
-            text-shadow: #666 0px 0px 2px;
-        }
-
-        form>input:hover {
-            width: 170px;
-            height: 40px;
-            background-color: rgb(189, 143, 28);
-        } */
     </style>
 </head>
 
 <body class="background">
     <div class="container-fluid">
-        <!-- <div class="row">
-                      <div class="col-*-*"></div>
-                      <div class="col-*-*"></div>
-                    </div>
-                    <div class="row">
-                      <div class="col-*-*"></div>
-                      <div class="col-*-*"></div>
-                      <div class="col-*-*"></div>
-                    </div>
-                    <div class="row">
-                      ...
-                    </div>
-                  </div> -->
-
-        <header>
-            <h1 class="headline"> Food from Heaven, for Shabbos.</h1>
-        </header>
-
-        <div class="firstGoldLine"> </div>
-
-        <div class="secondGoldLine"></div>
 
         <div class="barNavigation">
             <div> Hello. Welcome to Food for Families. Click either of the buttons below! </div>
@@ -167,15 +96,12 @@
         </div>
 
     </div>
-    <br>
-    <p style="text-align:center">
-        <a href="donations">Donations</a> | <a href="requests">Requests for Foods</a>
-    </p>
 
 
 </body>
 
 </html>
+
 
 <script>
 </script>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<%-include ../partials/header %>
+
+<head>
+    <title>Family Registration</title>
+    <link rel="icon" type="image/ico" href="images/icon.Shabbos.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        a {
+            color: rgb(94, 6, 6);
+        }
+
+        .background {
+            background: lightyellow;
+            margin: auto;
+        }
+
+        .barNavigation {
+            list-style-type: none;
+            text-align: center;
+            color: rgb(94, 6, 6);
+            font-family: calligraphy;
+            font-style: italic;
+            font-size: 25px;
+            font-weight: bold;
+            position: relative;
+            top: 8px;
+            background-color: burlywood;
+            margin: auto;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .loginBlock {
+            margin-top: 2%;
+            text-align: left;
+            box-shadow: 10px 10px 10px 10px burlywood;
+        }
+
+        input {
+            outline: 0;
+            border-width: 0 0 1px;
+            border-color: rgb(94, 6, 6);
+        }
+
+        .submitButton {
+            border-radius: 12px;
+            padding: 5px 10px;
+            background-color: rgb(241, 199, 93);
+            color: black;
+            border-width: 0 0 0px
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <div class="barNavigation">
+            <div> Welcome to the Registration Page for Families.</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="loginBlock col-lg-10">
+                <form id="familyRegistrationForm">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-11">
+                        <!-- <div class="row"> -->
+                        <div class="col-lg-4">
+                            <br>
+                            <input type="text" class="inp" name="firstName" id="firstName" placeholder="First Name"
+                                required> <br>
+                            <br>
+                            <input type="text" name="lastName" id="lastName" placeholder="Last Name" required><br>
+                            <br>
+                            <input type="text" name="userName" id="userName" placeholder="User Name" required><br>
+                            <br>
+                            <input type="text" name="password" id="password" placeholder="Password" required>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <br>
+                            <input type="text" name="email" id="email" placeholder="Email" required><br>
+                            <br>
+                            <input type="text" name="cellPhone" id="cellPhone" placeholder="Cell Phone" required><br>
+                            <br>
+                            <input type="text" name="homePhone" id="homePhone" placeholder="Home Phone" value=""><br>
+                            <br>
+                            <input type="text" name="address" id="address" placeholder="Address" value=""><br>
+
+                        </div>
+
+                        <div class="col-lg-4">
+                            <br>
+                            Family Size (number of portions):
+                            <input type="number" name="familySize" id="familySize" min=1 max=25 required><br>
+                            <!-- this is HIDDEN in Donor Reg and seen in Family Reg-->
+                            <br>Special Requests / Additional Information:<br>
+                            <textarea name="specialRequests" rows="2" cols="42" id="specialRequests"
+                                value="000"></textarea><br>
+                            <input class="hide" type="checkbox" name="donor" id="donor" value="false" required>
+                            <!-- <sp style="font-size: 15px">YES! I am interested in being a donor! -->
+                            </sp>
+                            <input type="checkbox" name="family" id="family" value="true">
+                            <sp></sp>Yes! We are interested in "Foods for Families"!
+                            <br><br>
+
+                            <input type="submit" class="submitButton" value="Submit Family Registration"
+                                id="submitBtn" />
+                            <br>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-11">
+                        <div class="col-lg-4">
+                            <a href="loginFamily" style="font-size:12px; text-align: center"><u>Are you ALREADY a
+                                    registered
+                                    family?</u></a><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+<script>
+    // listen to click event of the submit button
+    $('#submitBtn').click(function (e) {
+        // make sure the form is not submitted
+        e.preventDefault();
+        // run the form validations
+        document.getElementById('familyRegistrationForm').checkValidity();
+        // check if the form is valid
+        if (document.getElementById('familyRegistrationForm').reportValidity()) {
+            // form is valid, create a post request
+            $.ajax({
+                type: "post",
+                url: "familyRegistration/register",
+                // the user data 
+                data: {
+                    donor: $('#donor').val(), // ????
+                    family: $('#family').val(), // ????
+                    firstName: $('#firstName').val(),
+                    lastName: $('#lastName').val(),
+                    userName: $('#userName').val(),
+                    password: $('#password').val(),
+                    familySize: $('#familySize').val(),
+                    email: $('#email').val(),
+                    homePhone: $('#homePhone').val(),
+                    cellPhone: $('#cellPhone').val(),
+                    address: $('#address').val(),
+                    specialRequests: $('#specialRequests').val(),
+                },
+                complete: // this function will run if the request is successful
+                    function (xhr, status) {
+                        // check if there is an error
+                        if (status === 'error') {
+                            alert(xhr.responseText);
+                        } else {
+                            alert(xhr.responseText +
+                                "Foods for Families.  Thank you for being an INTEGRAL part of Families helping Families, preserving the resources of Abundant Foods and helping the world not to throw away yummy delicious Foods from Heaven."
+                            );
+                            window.location.replace(
+                                "./requests"
+                            ); // <== NOTE .. the destination is the ENDPOINT = what we see in the URL name of that page 
+                        }
+                    }
+            });
+        }
+    });
+</script>
+
+
+</html>

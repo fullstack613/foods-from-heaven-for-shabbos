@@ -34,7 +34,7 @@
             font-size: 25px;
             font-weight: bold;
             position: relative;
-            top: 10px;
+            top: 8px;
             background-color: burlywood;
             margin: auto;
             height: 40px;
@@ -45,6 +45,20 @@
             margin-top: 10%;
             text-align: center;
             box-shadow: 10px 10px 10px 10px burlywood;
+        }
+
+        input {
+            outline: 0;
+            border-width: 0 0 1px;
+            border-color: rgb(94, 6, 6);
+        }
+
+        .submitButton {
+            border-radius: 12px;
+            padding: 5px 10px;
+            background-color: rgb(241, 199, 93);
+            color: black;
+            border-width: 0 0 0px
         }
     </style>
 
@@ -63,16 +77,18 @@
                 <div class="col-lg-4">
                     <div class="loginBlock">
                         <form id="donorLoginForm"><br>
-                            User Name:<br>
-                            <input type="text" name="userName" id="userName" required><br>
-                            Password:<br>
-                            <input type="text" name="password" id="password" required><br>
                             <br>
-                            <input type="submit" value="Log In" id="submitBtn" style="text-align: left" />
+                            <input type="text" name="userName" id="userName" placeholder="User Name" required><br>
+                            <br>
+                            <input type="text" name="password" id="password" placeholder="Password" required><br>
+                            <br>
+                            <input type="submit" class="submitButton" value="Log In" id="submitBtn"
+                                style="text-align: left" />
                             <p style="font-size:12px"><a href="forgotPassword">Forgot password</a></p>
+                            <br>
                             <p> <a href="registrationDonor"> <u>Click here if you are a NEW donor</u></a>
                                 <p>
-                                    <br>
+
 
                         </form>
                     </div>

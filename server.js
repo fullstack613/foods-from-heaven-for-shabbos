@@ -30,6 +30,10 @@ app.get('/', (req, res) => {
 //     root: __dirname
 // }));
 
+app.get('/home', (req, res) => {
+    res.render('./pages/home');
+})
+
 app.get('/test', (req, res) => {
     return testMYSQL(req, res);
 });
@@ -41,9 +45,12 @@ app.get('/registrationDonor', (req, res) => {
 //     root: __dirname
 // }));
 
-app.get('/registrationFamily', (req, res) => res.sendFile('./pages/registrationFamily.html', {
-    root: __dirname
-}));
+app.get('/registrationFamily', (req, res) => {
+    res.render('./pages/registrationFamily');
+})
+// app.get('/registrationFamily', (req, res) => res.sendFile('./pages/registrationFamily.html', {
+//     root: __dirname
+// }));
 
 app.get('/loginDonor', (req, res) => {
     res.render('./pages/loginDonor');

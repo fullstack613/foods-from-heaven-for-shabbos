@@ -70,12 +70,18 @@ app.get('/forgotPassword', (req, res) => {
     res.render('./pages/forgotPassword');
 })
 
-app.get('/donations', (req, res) => res.sendFile('./pages/donations.html', {
-    root: __dirname
-}));
-app.get('/requests', (req, res) => res.sendFile('./pages/requests.html', {
-    root: __dirname
-}));
+app.get('/donations', (req, res) => {
+    res.render('./pages/donations');
+})
+// app.get('/donations', (req, res) => res.sendFile('./pages/donations.html', {
+//     root: __dirname
+// }));
+app.get('/requests', (req, res) => {
+    res.render('./pages/requests');
+})
+// app.get('/requests', (req, res) => res.sendFile('./pages/requests.html', {
+//     root: __dirname
+// }));
 
 app.get('/about', (req, res) => res.sendFile('./pages/about.html', {
     root: __dirname

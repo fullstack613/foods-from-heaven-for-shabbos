@@ -34,6 +34,14 @@ app.get('/home', (req, res) => {
     res.render('./pages/home');
 })
 
+app.get('/contactUs', (req, res) => {
+    res.render('./pages/contactUs');
+})
+// app.get('/contactUs', (req, res) => res.sendFile('./pages/contactUs.html', {
+//     root: __dirname
+// }));
+
+
 app.get('/test', (req, res) => {
     return testMYSQL(req, res);
 });
@@ -86,9 +94,8 @@ app.get('/requests', (req, res) => {
 app.get('/about', (req, res) => res.sendFile('./pages/about.html', {
     root: __dirname
 }));
-app.get('/contactUs', (req, res) => res.sendFile('./pages/contactUs.html', {
-    root: __dirname
-}));
+
+
 app.get('/updateDetails', (req, res) => res.sendFile('./pages/updateDetails.html', {
     root: __dirname
 }));

@@ -1,9 +1,261 @@
-<h3>Do you want to make a donation of cash or credit card? Click here: </h3>
+<!DOCTYPE html>
+<html lang="en">
 
-<h3>
-    Would you like to donate foods? Click here:
-</h3>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-Tizku l'MANY mitzvahs.
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-Families helping Families.
+        a {
+            color: rgb(94, 6, 6);
+        }
+
+        .background {
+            background: lightyellow;
+            margin: auto;
+        }
+
+        .topLinks {
+            margin-top: .5%;
+            font-weight: bold;
+            /* text-align: center; */
+            margin-bottom: .5%;
+            font-size: 17px;
+            font-family: calligraphy;
+            /* font-style: italic; */
+        }
+
+        /* .bottomLinks {
+            position: fixed;
+            left: 0;
+            bottom: 2%;
+            width: 100%;
+            text-align: center;
+
+        } */
+
+        header {
+            background-image: url("images/two.hearts.giving..jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 370px;
+        }
+
+        .headline {
+            position: absolute;
+            top: 42%;
+            right: 50%;
+            color: lightyellow;
+            text-shadow: rgb(94, 6, 6) 2px 4px 2px;
+            font-family: calligraphy;
+            font-style: italic;
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        .firstGoldLine {
+            background-size: 100%;
+            background-image: url("images/gold.Color.jpg");
+            margin: auto;
+            padding: 4px;
+        }
+
+        .secondGoldLine {
+            position: relative;
+            top: 8px;
+            background-size: 100%;
+            background-image: url("images/gold.Color.jpg");
+            margin: auto;
+            padding: 2px;
+        }
+
+        .loginBlock {
+            margin-top: 2%;
+            text-align: left;
+            box-shadow: 10px 10px 10px 10px burlywood;
+        }
+
+        input {
+            outline: 0;
+            border-width: 0 0 1px;
+            border-color: rgb(94, 6, 6);
+        }
+
+        /* input:focus {
+            border-color: rgb(94, 6, 6);
+            /* color: rgb(94, 6, 6) */
+        /* } */
+
+        .submitButton {
+            border-radius: 12px;
+            padding: 5px 10px;
+            background-color: rgb(241, 199, 93);
+            color: black;
+            border-width: 0 0 0px
+        }
+
+        .barNavigation {
+            list-style-type: none;
+            text-align: center;
+            color: rgb(94, 6, 6);
+            font-family: calligraphy;
+            font-style: italic;
+            font-size: 25px;
+            font-weight: bold;
+            position: relative;
+            top: 10px;
+            background-color: burlywood;
+            margin: auto;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .References {
+            list-style-type: none;
+            text-align: center;
+            color: rgb(94, 6, 6);
+            font-family: calligraphy;
+            font-style: italic;
+            position: relative;
+            top: 20px;
+            background-color: goldenrod;
+            margin: auto;
+            height: 280px;
+            width: 741px;
+            overflow: hidden;
+            font-size: 60px;
+            cursor: pointer;
+        }
+
+        .References:hover {
+            height: 280px;
+            width: 741px;
+            background-color: rgb(189, 143, 28);
+        }
+    </style>
+</head>
+
+<body class="background">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="topLinks col-lg-10">
+                <div class="row">
+                    <div class="col-lg-2">
+
+                        <a href="home" style="font-style: italic"> <img src="images/icon_home.png" alt="icon_home"
+                                style="width:25px;height:25px;" title="Home"> </a>
+                    </div>
+
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-7">
+
+                        <a href="about" style="font-style: italic">About Us</a>
+                        |
+                        <a href=contactUs style="font-style: italic">Contact Us</a>
+                        |
+                        <a href=updateDetails style="font-style: italic">Update Your Details</a>
+                        |
+                        <a href="donations" style="font-style: italic">Donations</a>
+                        |
+                        <a href="requests" style="font-style: italic">Requests for Foods</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header>
+            <h1 class="headline"> Food from Heaven, for Shabbos.</h1>
+        </header>
+
+        <div class="firstGoldLine"> </div>
+
+        <div class="secondGoldLine"></div>
+
+    </div>
+
+    <div class="container-fluid">
+
+        <!-- <div class="barNavigation">
+            <div> Welcome to the Registration Page for Donors for "Foods for Families".</div>
+        </div> -->
+        <div class="row">
+
+            <div class="col-lg-1"></div>
+            <div class="loginBlock col-lg-10">
+                <form id="contactUsForm">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-3">
+                        <!-- <div class="row"> -->
+                        <!-- <div class="col-lg-4"> -->
+                        <br>
+                        <input type="text" name="firstName" id="firstName" placeholder="First Name" required> <br>
+                        <br>
+                        <input type="text" name="lastName" id="lastName" placeholder="Last Name"><br>
+                        <br>
+                        <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number"><br>
+                        <br>
+                        <input type="email" name="email" id="email" placeholder="Email" required>
+                    </div>
+
+                    <!-- <div class="col-lg-8">
+                            <br>
+                            <input type="text" name="email" id="email" placeholder="Email" required><br>
+                            <br>
+                            <input type="text" name="cellPhone" id="cellPhone" placeholder="Cell Phone" required><br>
+                            <br>
+                            <input type="text" name="homePhone" id="homePhone" placeholder="Business or Home Phone"
+                                value=""><br>
+                            <br>
+                            <input &nbsp;="text" name="address" id="address" placeholder="Address" value=""><br>
+                            <!-- Family Size:<br> -->
+                    <input class="hide" type="number" name="familySize" id="familySize" value=0><br>
+                    <!-- this is HIDDEN in Donor Reg and seen in Family Reg-->
+
+                    <div class="col-lg-8">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        We are ALL EARS .. please share with us any ideas/ questions / requests ... :<br>
+                        <textarea name="weAreAllEars" rows="8" cols="96" id="allEars" value="000"></textarea><br>
+                        <br>
+                        <p> &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="donor" id="donor" value="true"
+                                required>
+                            <sp style="font-size: 15px">&nbsp;YES! Please be in contact with me!
+                            </sp>
+                            <input class="hide" type="checkbox" name="family" id="family" value="false">
+                            <!-- <sp></sp>YES! We are interested in being part of "Foods for Families". -->
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="submit" class="submitButton" value="Submit CONTACT US" id="submitBtn" />
+                        </p>
+                        <br>
+                    </div>
+            </div>
+            </form>
+            <!-- <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-11">
+                        <div class="col-lg-4">
+                            <a href="loginDonor" style="font-size:12px; text-align: center"><u>Are you ALREADY a
+                                    registered
+                                    donor?</u></a>
+                            <br><br>
+                        </div>
+                    </div>
+                </div> -->
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+</script>

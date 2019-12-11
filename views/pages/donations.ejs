@@ -24,21 +24,10 @@
         .topLinks {
             margin-top: .5%;
             font-weight: bold;
-            /* text-align: center; */
             margin-bottom: .5%;
             font-size: 17px;
             font-family: calligraphy;
-            /* font-style: italic; */
         }
-
-        /* .bottomLinks {
-            position: fixed;
-            left: 0;
-            bottom: 2%;
-            width: 100%;
-            text-align: center;
-
-        } */
 
         header {
             background-image: url("images/two.hearts.giving..jpg");
@@ -81,26 +70,28 @@
             box-shadow: 10px 10px 10px 10px burlywood;
         }
 
-        input {
+        /* input {
             outline: 0;
             border-width: 0 0 1px;
             border-color: rgb(94, 6, 6);
-        }
+        } */
 
         .donateButtons {
             border: 1px grey;
             font-size: 25px;
             cursor: pointer;
             text-align: center;
-            padding: 40px 40px;
+            padding: 50px 30px;
             font-family: calligraphy;
             font-style: italic;
-            background-color: white;
+            background-color: transparent;
             color: brown;
             box-shadow: 7px 7px 7px 2px burlywood;
             font-weight: bold;
-            width: 300px;
-            height: 180px;
+            width: 360px;
+            height: 200px;
+            background-image: url('images/heart.button.background.no.hearts.jpg');
+            background-repeat: no-repeat;
         }
 
         .barNavigation {
@@ -197,18 +188,20 @@
                 <!-- <form id="contactUsForm"> -->
                 <div class="col-lg-2"></div>
                 <div class="col-lg-3" class="tooltip">
-                    <br><br>
-                    <input type="submit" class="donateButtons"
+                    <br>
+                    <!-- <img src="images/heart.button.background.small3.jpg" alt="heartBackground"> -->
+                    <input type="button" class="donateButtons" class="backgroundButton"
                         title="Click here to donate funds (cash / check / credit card)" value="Donate Funds"
                         id="submitBtn" />
+                    <br><br>
                 </div>
                 <div class="col-lg-2"></div>
 
-                <div class="col-lg-3">
-
-                    <br><br>
-                    <input type="submit" class="donateButtons" title="Click here to donate FOODS"
-                        value=" Donate Foods  " id="submitBtn" />
+                <div class="col-lg-4">
+                    <br>
+                    <!-- <img src="images/heart.button.background.small3.jpg" alt="heartBackground"> -->
+                    <input type="submit" class="donateButtons" title="Click here to donate FOODS" value="Donate Foods"
+                        id="submitBtn" />
                     <br> <br> <br>
                 </div>
 

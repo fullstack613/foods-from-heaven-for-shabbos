@@ -64,7 +64,7 @@
             padding: 2px;
         }
 
-        .loginBlock {
+        .lowerBlock {
             margin-top: 2%;
             text-align: left;
             box-shadow: 10px 10px 10px 10px burlywood;
@@ -92,45 +92,6 @@
             height: 200px;
             background-image: url('images/heart.button.background.no.hearts.jpg');
             background-repeat: no-repeat;
-        }
-
-        .barNavigation {
-            list-style-type: none;
-            text-align: center;
-            color: rgb(94, 6, 6);
-            font-family: calligraphy;
-            font-style: italic;
-            font-size: 25px;
-            font-weight: bold;
-            position: relative;
-            top: 10px;
-            background-color: burlywood;
-            margin: auto;
-            height: 40px;
-            overflow: hidden;
-        }
-
-        .References {
-            list-style-type: none;
-            text-align: center;
-            color: rgb(94, 6, 6);
-            font-family: calligraphy;
-            font-style: italic;
-            position: relative;
-            top: 20px;
-            background-color: goldenrod;
-            margin: auto;
-            height: 280px;
-            width: 741px;
-            overflow: hidden;
-            font-size: 60px;
-            cursor: pointer;
-        }
-
-        .References:hover {
-            height: 280px;
-            width: 741px;
-            background-color: rgb(189, 143, 28);
         }
     </style>
 </head>
@@ -184,24 +145,26 @@
         <div class="row">
 
             <div class="col-lg-1"></div>
-            <div class="loginBlock col-lg-10">
+            <div class="lowerBlock col-lg-10" id="block">
                 <!-- <form id="contactUsForm"> -->
                 <div class="col-lg-2"></div>
                 <div class="col-lg-3" class="tooltip">
                     <br>
-                    <!-- <img src="images/heart.button.background.small3.jpg" alt="heartBackground"> -->
-                    <input type="button" class="donateButtons" class="backgroundButton"
-                        title="Click here to donate funds (cash / check / credit card)" value="Donate Funds"
-                        id="submitBtn" />
+                    <button class="donateButtons" class="backgroundButton"
+                        title="Click here to donate funds (cash / check / credit card)" id="submitBtn"
+                        onclick="donateFundsFunction()">Donate
+                        Funds</button>
+
                     <br><br>
                 </div>
                 <div class="col-lg-2"></div>
 
                 <div class="col-lg-4">
                     <br>
-                    <!-- <img src="images/heart.button.background.small3.jpg" alt="heartBackground"> -->
-                    <input type="submit" class="donateButtons" title="Click here to donate FOODS" value="Donate Foods"
-                        id="submitBtn" />
+                    <button class="donateButtons" class="backgroundButton"
+                        title="Click here to donate funds (cash / check / credit card)" id="submitBtn"
+                        onclick="donateFoodsFunction()">Donate
+                        Foods</button>
                     <br> <br> <br>
                 </div>
 
@@ -220,4 +183,15 @@
 </html>
 
 <script>
+    function donateFundsFunction() {
+        let x = document.getElementById("block");
+        x.style.display = 'none'; // how to "hide"
+        // element.style.display = 'block'; 
+    }
+
+    function donateFoodsFunction() {
+        let x = document.getElementById("block");
+        x.style.display = 'none'; // how to "hide"
+        // element.style.display = 'block'; 
+    }
 </script>

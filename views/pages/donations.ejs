@@ -30,7 +30,7 @@
         }
 
         header {
-            background-image: url("images/two.hearts.giving..jpg");
+            background-image: url("images/blue.heart.flowers2.jpg");
             background-repeat: no-repeat;
             background-position: center;
             height: 370px;
@@ -78,7 +78,6 @@
 
         .donateButtons {
             border: 1px grey;
-            font-size: 25px;
             cursor: pointer;
             text-align: center;
             padding: 50px 30px;
@@ -91,6 +90,27 @@
             width: 360px;
             height: 200px;
             background-image: url('images/heart.button.background.no.hearts.jpg');
+            color: teal;
+            font-size: 28px;
+            background-repeat: no-repeat;
+        }
+
+        .smallerDonateButtons {
+            border: 1px grey;
+            cursor: pointer;
+            text-align: center;
+            padding: 45px 30px;
+            font-family: calligraphy;
+            font-style: italic;
+            background-color: transparent;
+            color: brown;
+            box-shadow: 7px 7px 7px 2px burlywood;
+            font-weight: bold;
+            width: 1100px;
+            height: 40px;
+            /* background-image: url('images/heart.button.background.no.hearts.jpg'); */
+            color: teal;
+            font-size: 20px;
             background-repeat: no-repeat;
         }
     </style>
@@ -146,7 +166,6 @@
 
             <div class="col-lg-1"></div>
             <div class="lowerBlock col-lg-10" id="block">
-                <!-- <form id="contactUsForm"> -->
                 <div class="col-lg-2"></div>
                 <div class="col-lg-3" class="tooltip">
                     <br>
@@ -178,6 +197,27 @@
     </div>
     </div>
 
+
+    <div id="funds">
+        <br>
+        <div class="col-lg-10" id="threeDonationOptions">
+            <!-- <div class="lowerBlock col-lg-10" id="block"> -->
+            <div class="col-lg-2"></div>
+            <div class="col-lg-9" class="tooltip">
+
+                <button class="smallerDonateButtons" title="Click to donate cash" id="cashBtn"
+                    onclick="donateCashFunction()">CASH Donation</button>
+                <button class="smallerDonateButtons" title="Click to donate by check" id="checkBtn"
+                    onclick="donateCheckFunction()">Donate by CHECK</button>
+                <button class="smallerDonateButtons" title="Click to donate by credit card)" id=" creditCardBtn"
+                    onclick="donateCreditCardFunction()">CREDIT CARDS (Visa / MC / AMEX)</button>
+                <br><br>
+            </div>
+            <div class="col-lg-2"></div>
+
+
+        </div>
+    </div>
 </body>
 
 </html>
@@ -187,6 +227,7 @@
         let x = document.getElementById("block");
         x.style.display = 'none'; // how to "hide"
         // element.style.display = 'block'; 
+        // url = "https://go.thechesedfund.com/A5n1wl/helping-families-in-israel-israel-childrens-fund-501-c-3";
     }
 
     function donateFoodsFunction() {

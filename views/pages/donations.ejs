@@ -87,17 +87,20 @@
             border-color: rgb(94, 6, 6);
         }
 
-        /* input:focus {
-            border-color: rgb(94, 6, 6);
-            /* color: rgb(94, 6, 6) */
-        /* } */
-
-        .submitButton {
-            border-radius: 12px;
-            padding: 5px 10px;
-            background-color: rgb(241, 199, 93);
-            color: black;
-            border-width: 0 0 0px
+        .donateButtons {
+            border: 1px grey;
+            font-size: 25px;
+            cursor: pointer;
+            text-align: center;
+            padding: 40px 40px;
+            font-family: calligraphy;
+            font-style: italic;
+            background-color: white;
+            color: brown;
+            box-shadow: 7px 7px 7px 2px burlywood;
+            font-weight: bold;
+            width: 300px;
+            height: 180px;
         }
 
         .barNavigation {
@@ -191,65 +194,31 @@
 
             <div class="col-lg-1"></div>
             <div class="loginBlock col-lg-10">
-                <form id="contactUsForm">
-                    <div class="col-lg-1"></div>
-                    <div class="col-lg-3">
-                        <!-- <div class="row"> -->
-                        <!-- <div class="col-lg-4"> -->
-                        <br>
-                        <input type="text" name="firstName" id="firstName" placeholder="First Name" required> <br>
-                        <br>
-                        <input type="text" name="lastName" id="lastName" placeholder="Last Name"><br>
-                        <br>
-                        <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number"><br>
-                        <br>
-                        <input type="email" name="email" id="email" placeholder="Email" required>
-                    </div>
+                <!-- <form id="contactUsForm"> -->
+                <div class="col-lg-2"></div>
+                <div class="col-lg-3" class="tooltip">
+                    <br><br>
+                    <input type="submit" class="donateButtons"
+                        title="Click here to donate funds (cash / check / credit card)" value="Donate Funds"
+                        id="submitBtn" />
+                </div>
+                <div class="col-lg-2"></div>
 
-                    <!-- <div class="col-lg-8">
-                            <br>
-                            <input type="text" name="email" id="email" placeholder="Email" required><br>
-                            <br>
-                            <input type="text" name="cellPhone" id="cellPhone" placeholder="Cell Phone" required><br>
-                            <br>
-                            <input type="text" name="homePhone" id="homePhone" placeholder="Business or Home Phone"
-                                value=""><br>
-                            <br>
-                            <input &nbsp;="text" name="address" id="address" placeholder="Address" value=""><br>
-                            <!-- Family Size:<br> -->
-                    <input class="hide" type="number" name="familySize" id="familySize" value=0><br>
-                    <!-- this is HIDDEN in Donor Reg and seen in Family Reg-->
+                <div class="col-lg-3">
 
-                    <div class="col-lg-8">
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        We are ALL EARS .. please share with us any ideas/ questions / requests ... :<br>
-                        <textarea name="weAreAllEars" rows="8" cols="96" id="allEars" value="000"></textarea><br>
-                        <br>
-                        <p> &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="donor" id="donor" value="true"
-                                required>
-                            <sp style="font-size: 15px">&nbsp;YES! Please be in contact with me!
-                            </sp>
-                            <input class="hide" type="checkbox" name="family" id="family" value="false">
-                            <!-- <sp></sp>YES! We are interested in being part of "Foods for Families". -->
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="submit" class="submitButton" value="Submit CONTACT US" id="submitBtn" />
-                        </p>
-                        <br>
-                    </div>
+                    <br><br>
+                    <input type="submit" class="donateButtons" title="Click here to donate FOODS"
+                        value=" Donate Foods  " id="submitBtn" />
+                    <br> <br> <br>
+                </div>
+
             </div>
-            </form>
-            <!-- <div class="row">
-                    <div class="col-lg-1"></div>
-                    <div class="col-lg-11">
-                        <div class="col-lg-4">
-                            <a href="loginDonor" style="font-size:12px; text-align: center"><u>Are you ALREADY a
-                                    registered
-                                    donor?</u></a>
-                            <br><br>
-                        </div>
-                    </div>
-                </div> -->
+            <!-- <div class="col-lg-2"></div>
+            <div class="col-lg-1"></div> -->
+
         </div>
+
+    </div>
     </div>
     </div>
 

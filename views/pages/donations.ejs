@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
 
     <style>
         * {
@@ -70,12 +71,6 @@
             box-shadow: 10px 10px 10px 10px burlywood;
         }
 
-        /* input {
-            outline: 0;
-            border-width: 0 0 1px;
-            border-color: rgb(94, 6, 6);
-        } */
-
         .donateButtons {
             border: 1px grey;
             cursor: pointer;
@@ -112,6 +107,32 @@
             color: teal;
             font-size: 20px;
             background-repeat: no-repeat;
+        }
+
+        input {
+            outline: 0;
+            border-width: 0 0 1px;
+            border-color: rgb(94, 6, 6);
+        }
+
+        .submitButton {
+            border-radius: 12px;
+            padding: 5px 10px;
+            background-color: rgb(241, 199, 93);
+            color: black;
+            border-width: 0 0 0px
+        }
+
+        .loginBlock {
+            margin-top: 2%;
+            text-align: left;
+            box-shadow: 10px 10px 10px 10px burlywood;
+        }
+
+        .donateFoodsBlock {
+            margin-top: 2%;
+            text-align: left;
+            /* box-shadow: 10px 10px 10px 10px burlywood; */
         }
     </style>
 </head>
@@ -188,8 +209,6 @@
                 </div>
 
             </div>
-            <!-- <div class="col-lg-2"></div>
-            <div class="col-lg-1"></div> -->
 
         </div>
 
@@ -218,6 +237,36 @@
 
         </div>
     </div>
+
+    <div id="foods">
+        <br>
+        <div class="col-lg-10" id="foodDonationOptions">
+
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="donateFoodsBlock col-lg-10">
+                    <form id="donateFoodsForm">
+
+                        WELCOME to the DONATE FOODS PAGE ... "username"
+
+                        <br>
+                        Here are the foods that kind donors have given in the past - please check each food (and amount)
+                        that you would like to
+                        donate.
+                        <br>
+                        If you have something new to ADD to the list - please add into OTHER/NEW FOOD ITEM.
+
+                        <br><br><br>
+                        <input type="submit" class="submitButton" value=" Submit Food Donation " id="submitBtn" />
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
 </body>
 
 </html>
@@ -226,6 +275,8 @@
     function donateFundsFunction() {
         let x = document.getElementById("block");
         x.style.display = 'none'; // how to "hide"
+        let z = document.getElementById("foods");
+        z.style.display = 'none';
         // element.style.display = 'block'; 
         // url = "https://go.thechesedfund.com/A5n1wl/helping-families-in-israel-israel-childrens-fund-501-c-3";
     }
@@ -233,6 +284,8 @@
     function donateFoodsFunction() {
         let x = document.getElementById("block");
         x.style.display = 'none'; // how to "hide"
+        let y = document.getElementById("funds");
+        y.style.display = 'none';
         // element.style.display = 'block'; 
     }
 </script>
